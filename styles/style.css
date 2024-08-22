@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); /*Fontes do titulo e paragrafo importados direto do google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,600&display=swap');
+
+:root{
+    --cor-primaria: #000000;   
+    --cor-segundaria: #ffffff;
+    --cor-terciaria: #4B70F5;
+    --cor-hover: #272727;
+
+    --fonte-primaria: "Krona One", sans-serif;
+    --fonte-segundaria: "Montserrat", sans-serif;
+}
+
+*{ /*reseta o css, tirando margin e padding que vem no css de todos os elementos*/
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    /* height: 100vh; Pega 100% da altura da tela, vh é viewport = tela */
+    box-sizing: border-box; /*Garante que as tags filho não saia das tags pai. Visualmente não notamos nenhuma diferença, mas agora nada vai sair da nossa página.*/
+    background-color: var(--cor-primaria); /*pega a cor de fundo*/
+    color: var(--cor-segundaria); /*pega a cor do texto*/
+}
+
+/*abaixo estão propriedades puxando as classes criadas no html*/
+
+/*============== CABEÇALHO =============*/
+
+
+.cabecalho{
+    padding: 2% 0% 0% 15%;
+}
+
+.cabecalho__menu{
+    display: flex;
+    gap: 80px;
+}
+
+.cabecalho__menu__link{
+    font-family: var(--fonte-segundaria);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--cor-terciaria);
+    text-decoration: none;
+}
+
+/*============== CONTEÚDO PRINCIPAL =============*/
+.apresentacao{ /*pegando toda a main*/
+    padding: 5% 15%; /*todos os elementos dessa propriedade "main" vai ter uma margem/* essa proprieade margin cria uma margem pra fora pra os conteúdos ficarem mais agrupados pro centro*/
+    display: flex; /*essa propriedade define um contêiner flexível, colocou tudo na mesma linha*/  
+    justify-content: space-between; /*essa propriedade cria um espaço entre os elementos sem criar muita margem de fora, nesse caso estamos espaçando a section da img*/
+    align-items: center; /*essa propriedade  coloca todos os itens no centro da tela*/
+    gap: 82px; 
+}
+
+.apresentacao__conteudo{ /*Estamos pegando a section */
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /*Essa propriedade cria um espaçamento entre os elementos filhos*/
+    
+}
+
+.apresentacao__conteudo__titulo{ /*Estamos pegando o h1*/
+    font-size: 2.25rem;/*font = fonte e size = tamanho*/
+    font-family: var(--fonte-primaria); /*Importado direto do google fonts na linha 1*/
+}
+
+.titulo-destaque{ /*strong do h1*/
+    color: var(--cor-terciaria);
+}
+
+
+.apresentacao__conteudo__paragrafo{
+    font-size: 1.5rem;
+    font-family: var(--fonte-segundaria); /*Importado direto do google fonts na linha 1*/
+}
+
+.apresentacao__links{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column; /*colocou o conteúdo em forma de coluna*/
+    align-items: center; /*centralizou os itens*/
+    gap: 32px; /*cricou um espaçamento entre os botões*/
+}
+
+
+.apresentao__links__subtitulo{
+    font-family: var(--fonte-primaria);
+    font-size: 1.5rem;
+}
+
+.apresentacao__links__navegacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border: 2px solid var(--cor-terciaria); /* O 2px ele define a espressura da borda, a propriedade solid, define o estilo*/
+    width: 50%; /*largura do botão*/
+    text-align: center; /*centralizou o texto*/
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 21.5px 0; /*Quando a gente quer apenas selecionar um padding em um eixo, podemos adcionar dois valores
+    Sempre o primeiro valor é a vertical || e o segundo valor é horizontal --*/
+    text-decoration: none; /*Tira o sublinhado ou qualquer decoração que venha no link*/
+    color: var(--cor-segundaria);
+    font-family: var(--fonte-segundaria);
+}
+
+.apresentacao__links__navegacao:hover{
+    background-color: var(--cor-hover);
+    
+}
+
+.apresentacao__imagem{
+    width: 35%;
+    border-radius: 50px;
+}
+
+/*============== RODAPÉ =============*/
+.rodape{
+    color: var(--cor-primaria);
+    background-color: var(--cor-terciaria);
+    padding: 24px;
+    text-align: center;
+    font-family: var(--fonte-segundaria);
+    font-size: 1.5rem;
+    font-weight: 400;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/*página do curriculo*/
+.apresentacao__conteudo__paragrafo a{
+    text-decoration: none;
+    color: var(--cor-terciaria);
+} 
+
+/*Tornando o site Responsivo*/
+
+@media (max-width: 1200px){ /*Estou declarando que a largura máxima da tela seja de 1200px*/
+    
+    .cabecalho{
+        padding: 10%;
+}
+    
+    .cabecalho__menu{
+        justify-content: center; /*Quando a tela diminuir para 1200px ou menos, o cabeçalho com o home, centralizará */
+        gap: 40px;
+    }
+
+    .cabecalho__menu__link{
+        font-size: 1.0rem;
+
+    }
+
+    .apresentacao{
+        flex-direction: column-reverse; /*Quando a tela diminuir para 1200px o conteúdo e a imagem ficarão em formato de coluna, o collumn-reverse faz com que a imagem fique acima do conteúdo*/
+        padding: 5%;
+    }
+
+    .apresentacao__conteudo{
+        width: auto; /*Essa propriedade vai dizer que você tem esse espaço/padding, então ocupe todo esse espaço sem bugar. Auto vem de automático, ou seja, automáticamente ele vai pegar o espaço que existir no padding e preencher*/
+    }
+
+    .apresentacao__conteudo__titulo{
+        font-size: 1.5rem;
+    }
+
+    .apresentacao__conteudo__paragrafo{
+        font-size: 1.3rem;
+    }
+
+    .apresentao__links__subtitulo{
+        font-size: 1.5rem;
+    }
+    
+    .apresentacao__links__navegacao{
+        align-items: center;
+        font-size: 1.5rem;
+    }
+
+    .apresentacao__imagem{
+        width: 50%;
+    }
+
+    .rodape{
+        position: relative; /*Dessa forma, ele ficará sempre no final da tela, o rodapé não ficará estático no "meio do conteúdo".*/
+        bottom: 0;
+        max-width:100vw;
+        font-size: 1.5rem;
+    }
+}
